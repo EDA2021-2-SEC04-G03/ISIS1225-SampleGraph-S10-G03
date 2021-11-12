@@ -28,6 +28,7 @@
 import sys
 import config
 import threading
+import time
 from App import controller
 from DISClib.ADT import stack
 assert config
@@ -83,7 +84,11 @@ def optionThree(cont):
 
 
 def optionFour(cont, initialStation):
+    startTime=time.process_time()
     controller.minimumCostPaths(cont, initialStation)
+    stopTime=time.process_time()
+    tiempo=stopTime-startTime
+    print(tiempo)
 
 
 def optionFive(cont, destStation):
@@ -94,6 +99,7 @@ def optionFive(cont, destStation):
 
 
 def optionSix(cont, destStation):
+    startTime=time.process_time()
     path = controller.minimumCostPath(cont, destStation)
     if path is not None:
         pathlen = stack.size(path)
@@ -103,6 +109,9 @@ def optionSix(cont, destStation):
             print(stop)
     else:
         print('No hay camino')
+    stopTime=time.process_time()
+    tiempo=stopTime-startTime
+    print(tiempo)
 
 
 def optionSeven(cont):
